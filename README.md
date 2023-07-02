@@ -1,2 +1,5 @@
-# scala-application-template
-Template to create basic scala 3 application
+Sample README document
+
+Replace `<repo_name>` with your repository name in below 2 files:
+* docs/source/conf.py
+* build.sbt
