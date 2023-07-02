@@ -35,12 +35,13 @@ val dependencies =
 val commonSettings = Seq(
   organization := organizationName,
   version := releaseVersion,
-  Keys.scalacOptions ++= scalacOptions
+  Keys.scalacOptions ++= scalacOptions,
+  libraryDependencies ++= dependencies
 )
 
 // ----- PROJECTS ----- //
 
-lazy val `<repo_name>` = project
+lazy val root = (project in file("."))
   .configs(IntegrationTest)
   .settings(commonSettings)
 
