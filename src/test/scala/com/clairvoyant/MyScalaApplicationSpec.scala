@@ -8,4 +8,5 @@ class MyScalaApplicationSpec extends AnyFlatSpec with Matchers {
   "main" should "contain welcomeMessage" in {
     MyScalaApplication.welcomeMessage should equal("Welcome to MyScalaApplication !!")
   }
+
 }
