@@ -1,6 +1,11 @@
 package com.clairvoyant
 
 object MyScalaApplication extends App {
-  val welcomeMessage = "Welcome to MyScalaApplication !!"
-  println(welcomeMessage)
+  val calculator = new MyCalculator
+
+  print(calculator.add(10, 5))
+}
+
+class MyCalculator {
+  def add(a: Int, b: Int): Int = a + b
 }

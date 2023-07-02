@@ -24,7 +24,7 @@ val scalaParserCombinatorsDependencies = Seq(
 // ----- MODULE DEPENDENCIES ----- //
 
 val rootDependencies =
-  scalaTestDependencies.map(_ % Test) ++
+  scalaTestDependencies.map(_ % "it,test") ++
     scalaXmlDependencies ++
     scalaParserCombinatorsDependencies
 
@@ -35,7 +35,7 @@ val rootSettings = Seq(
   version := releaseVersion,
   Keys.scalacOptions ++= scalacOptions,
   libraryDependencies ++= rootDependencies
-)
+) ++ Defaults.itSettings
 
 // ----- PROJECTS ----- //
 
