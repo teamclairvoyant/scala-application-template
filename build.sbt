@@ -1,7 +1,5 @@
 ThisBuild / scalaVersion := "3.2.2"
 
-Global / excludeLintKeys += Keys.parallelExecution
-
 lazy val scalacOptions = Seq("-Xmax-inlines", "50")
 
 // ----- VARIABLES ----- //
@@ -25,25 +23,25 @@ val scalaParserCombinatorsDependencies = Seq(
 
 // ----- MODULE DEPENDENCIES ----- //
 
-val dependencies =
+val rootDependencies =
   scalaTestDependencies.map(_ % Test) ++
     scalaXmlDependencies ++
     scalaParserCombinatorsDependencies
 
 // ----- SETTINGS ----- //
 
-val commonSettings = Seq(
+val rootSettings = Seq(
   organization := organizationName,
   version := releaseVersion,
   Keys.scalacOptions ++= scalacOptions,
-  libraryDependencies ++= dependencies
+  libraryDependencies ++= rootDependencies
 )
 
 // ----- PROJECTS ----- //
 
 lazy val root = (project in file("."))
   .configs(IntegrationTest)
-  .settings(commonSettings)
+  .settings(rootSettings)
 
 // ----- PUBLISH TO GITHUB PACKAGES ----- //
 
