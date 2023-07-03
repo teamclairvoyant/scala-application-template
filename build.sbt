@@ -5,6 +5,7 @@ lazy val scalacOptions = Seq("-Xmax-inlines", "50")
 // ----- VARIABLES ----- //
 
 val organizationName = "com.clairvoyant"
+val projectName = "<repo_name>"
 val releaseVersion = "1.0.0"
 
 val scalaTestVersion = "3.2.15"
@@ -30,12 +31,13 @@ val rootDependencies =
 
 // ----- SETTINGS ----- //
 
-val rootSettings = Seq(
-  organization := organizationName,
-  version := releaseVersion,
-  Keys.scalacOptions ++= scalacOptions,
-  libraryDependencies ++= rootDependencies
-) ++ Defaults.itSettings
+val rootSettings =
+  Seq(
+    organization := organizationName,
+    version := releaseVersion,
+    Keys.scalacOptions ++= scalacOptions,
+    libraryDependencies ++= rootDependencies
+  ) ++ Defaults.itSettings
 
 // ----- PROJECTS ----- //
 
@@ -45,7 +47,7 @@ lazy val root = (project in file("."))
 
 // ----- PUBLISH TO GITHUB PACKAGES ----- //
 
-ThisBuild / publishTo := Some("Github Repo" at "https://maven.pkg.github.com/teamclairvoyant/<repo_name>/")
+ThisBuild / publishTo := Some("Github Repo" at s"https://maven.pkg.github.com/teamclairvoyant/$projectName/")
 
 ThisBuild / credentials += Credentials(
   "GitHub Package Registry",
